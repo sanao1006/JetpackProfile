@@ -23,6 +23,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jetprofile.components.CompanySection
+import com.example.jetprofile.components.DetailSection
+import com.example.jetprofile.components.Label
 import com.example.jetprofile.ui.theme.JetProfileTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,103 +35,7 @@ class MainActivity : ComponentActivity() {
             JetProfileTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(20.dp)
-                    ) {
-
-                        Image(
-                            painter = painterResource(R.drawable.img),
-                            contentDescription = "プロフィール",
-                            modifier = Modifier.size(100.dp).clip(RoundedCornerShape(10.dp))
-                        )
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Text(
-                            text = "hogeName",
-                            color = Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.ExtraBold
-                        )
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Text(
-                            text = "職業:Androidエンジニア",
-                            color = Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.ExtraBold
-                        )
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Column(
-                            horizontalAlignment = Alignment.Start,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text(
-                                text = "Goooogle",
-                                fontSize = 26.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Spacer(modifier = Modifier.height(10.dp))
-
-                            Text(
-                                text = "DX推進課",
-                                color = Color.Gray,
-                                fontSize = 16.sp
-                            )
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Label(icon = Icons.Default.Email, text = "Email")
-
-                            Spacer(modifier = Modifier.height(10.dp))
-
-                            Text(text = "example@example.com", fontSize = 16.sp)
-
-                            Spacer(modifier = Modifier.height(5.dp))
-                            Divider(
-                                modifier = Modifier.clip(RoundedCornerShape(1000.dp)),
-                                thickness = 2.dp
-                            )
-
-
-                        }
-
-                        Spacer(modifier = Modifier.height(20.dp))
-                        Button(
-                            onClick = { TODO("Not yet implementation") },
-                            modifier = Modifier.fillMaxWidth(),
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF85F6A))
-                        ) {
-                            Text(text = "詳細を表示", color = Color.White)
-                        }
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Column(
-                            modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp))
-                                .background(Color.LightGray.copy(alpha = 0.3f))
-                                .padding(horizontal = 10.dp, vertical = 20.dp)
-                        ) {
-                            Label(
-                                icon = Icons.Default.Favorite,
-                                text = "趣味：散歩",
-                                color=Color.Gray
-                            )
-
-                            Spacer(modifier = Modifier.height(10.dp))
-
-                            Label(
-                                icon = Icons.Default.LocationOn,
-                                text = "居住地：東京",
-                                color = Color.Gray
-
-                            )
-
-                        }
-                    }
-
+                    MainContent()
                 }
             }
         }
@@ -136,12 +43,52 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Label(icon: ImageVector, text: String, color: Color = MaterialTheme.colors.onBackground) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Icon(imageVector = icon, contentDescription = null)
+fun MainContent() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(20.dp)
+    ) {
 
-        Spacer(modifier = Modifier.width(10.dp))
-        Text(text = text, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = color)
+        Image(
+            painter = painterResource(R.drawable.img),
+            contentDescription = "プロフィール",
+            modifier = Modifier.size(100.dp).clip(RoundedCornerShape(10.dp))
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "hogeName",
+            color = Color.Gray,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.ExtraBold
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "職業:Androidエンジニア",
+            color = Color.Gray,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.ExtraBold
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        CompanySection()
+
+        Spacer(modifier = Modifier.height(20.dp))
+        Button(
+            onClick = { TODO("Not yet implementation") },
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF85F6A))
+        ) {
+            Text(text = "詳細を表示", color = Color.White)
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        DetailSection()
     }
-}
 
+}
