@@ -95,6 +95,15 @@ class MainActivity : ComponentActivity() {
 
 
                         }
+
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Button(
+                            onClick = { TODO("Not yet implementation") },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF85F6A))
+                        ) {
+                            Text(text = "詳細を表示", color = Color.White)
+                        }
                     }
 
                 }
