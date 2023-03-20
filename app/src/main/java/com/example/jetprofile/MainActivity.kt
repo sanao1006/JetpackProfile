@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(20.dp)) {
+                        modifier = Modifier.padding(20.dp)
+                    ) {
 
                         Image(
                             painter = painterResource(R.drawable.img),
@@ -55,6 +56,26 @@ class MainActivity : ComponentActivity() {
                             fontSize = 16.sp,
                             fontWeight = FontWeight.ExtraBold
                         )
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Column(
+                            horizontalAlignment = Alignment.Start,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = "Goooogle",
+                                fontSize = 26.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Spacer(modifier = Modifier.height(10.dp))
+
+                            Text(text = "DX推進課",
+                                color = Color.Gray,
+                                fontSize = 16.sp)
+
+
+                        }
                     }
 
                 }
